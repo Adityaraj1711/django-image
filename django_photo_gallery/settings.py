@@ -9,8 +9,8 @@ SECRET_KEY = '8ace3072-47a0-4910-b522-dc3601f38c35'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = ['0.0.0.0','127.0.0.1','localhost','django-photo-gallery.velingeorgiev.pro','139.59.72.189']
+import dj_database_url
+ALLOWED_HOSTS = ['*']
 INTERNAL_IPS = ('0.0.0.0','127.0.0.1','localhost',)
 
 INSTALLED_APPS = [
@@ -62,10 +62,13 @@ TEMPLATES = [
 WSGI_APPLICATION = 'django_photo_gallery.wsgi.application'
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    #'default': {
+    #    'ENGINE': 'django.db.backends.sqlite3',
+    #    'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    #}
+    'default': dj_database_url.config(
+          default='sqlite:////{0}'.format(os.path.join(BASE_DIR, 'db.sqlite3'))
+      )
 }
 
 AUTH_PASSWORD_VALIDATORS = [

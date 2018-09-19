@@ -1,4 +1,11 @@
-django == 1.10.5
-django-material == 0.12.0
-Pillow == 3.00
-django-imagekit == 3.3	
+dj-database-url==0.5.0
+Django==1.10.5
+django-appconf==1.0.2
+django-imagekit==3.3
+django-material==0.12.0
+gunicorn==19.9.0
+pilkit==2.0
+Pillow==5.2.0
+psycopg2==2.7.5
+six==1.11.0
+whitenoise==4.1
